@@ -1,0 +1,70 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+group = 'com.yyfly.library'
+archivesBaseName = 'yyfly-library-common'
+version = '0.0.1-SNAPSHOT'
+description = "yyfly-library-common"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+//定义版本号
+ext {
+    springBootVersion = '2.0.4.RELEASE'
+    junitVersion = '4.12'
+    springtestVersion = '5.0.8.RELEASE'
+    mysqlVersion = '5.1.46'
+    lombokVersion = '1.18.2'
+    commonslang3Version = '3.7'
+    swagger2Version = '2.9.2'
+}
+
+// java编译的时候缺省状态下会因为中文字符而失败
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    mavenCentral()
+    jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url 'http://maven.springframework.org/release' }
+    maven { url 'http://maven.springframework.org/milestone' }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts { archives sourcesJar }
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version:springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:springBootVersion
+
+    compile group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: swagger2Version
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: commonslang3Version
+
+    runtime group: 'org.springframework.boot', name: 'spring-boot-devtools', version: springBootVersion
+    runtime group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
+
+    testCompile group: 'junit', name: 'junit', version: junitVersion
+    testCompile group: 'org.springframework', name: 'spring-test', version: springtestVersion
+}

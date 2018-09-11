@@ -4,9 +4,9 @@ company:
   website: www.yyfly.com
 project:
   copyright: yyfly
-  description: yyfly library common
+  description: yyfly common
   license: Apache 2.0
   licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
-  name: library-common
-  type: library
+  name: yyfly-common
+  type: common
   version: 0.0.1-SNAPSHOT

@@ -1,4 +1,4 @@
-package com.yyfly.common.controller;
+package com.yyfly.common.web;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;

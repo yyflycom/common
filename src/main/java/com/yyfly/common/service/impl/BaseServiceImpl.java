@@ -1,7 +1,7 @@
 package com.yyfly.common.service.impl;
 
 import com.yyfly.common.constant.Constants;
-import com.yyfly.common.dao.BaseDao;
+import com.yyfly.common.repository.BaseRepository;
 import com.yyfly.common.entity.BaseEntity;
 import com.yyfly.common.search.BaseSearchCriteria;
 import com.yyfly.common.search.GlobalSpecification;
@@ -34,10 +34,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     /**
      * 获取 DAO
      *
-     * @return the base dao
+     * @return the base repository
      * @author : yyfly / 2018-08-08
      */
-    abstract protected BaseDao<T> getDao();
+    abstract protected BaseRepository<T> getDao();
 
     @Override
     public <S extends T> S save(S entity) {

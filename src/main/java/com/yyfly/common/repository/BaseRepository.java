@@ -1,4 +1,4 @@
-package com.yyfly.common.dao;
+package com.yyfly.common.repository;
 
 import com.yyfly.common.entity.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +13,5 @@ import org.springframework.data.repository.NoRepositoryBean;
  * @date   : 2018-08-08
  */
 @NoRepositoryBean
-public interface BaseDao<T extends BaseEntity> extends JpaRepository<T, String>, JpaSpecificationExecutor<T> {
+public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, String>, JpaSpecificationExecutor<T> {
 }

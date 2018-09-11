@@ -165,7 +165,7 @@ public class CodeGenUtils {
 
         dataModel.put("entity_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".entity");
         dataModel.put("entity_dto_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".dto");
-        dataModel.put("dao_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".dao");
+        dataModel.put("dao_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".repository");
         dataModel.put("service_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".service");
         dataModel.put("service_impl_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".service.impl");
         dataModel.put("controller_package", PROJECT_PACKAGE + "." + PACKAGE_NAME + ".web");
@@ -252,7 +252,7 @@ public class CodeGenUtils {
 
         //Dao目录
         String filedDirectory = WORKSPACE_PATH + "/" + MODULE_NAME.replaceAll("\\.", "/") + "/" + BASE_PATH + "/"
-                + PACKAGE_NAME.replaceAll("\\.", "/") + "/dao";
+                + PACKAGE_NAME.replaceAll("\\.", "/") + "/repository";
 
         File directory = new File(filedDirectory);
         if (!directory.exists()) {

@@ -4,7 +4,7 @@ apply plugin: 'idea'
 
 group = 'com.yyfly'
 archivesBaseName = 'yyfly-common'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0-beta'
 description = "yyfly-common"
 
 sourceCompatibility = 1.8

@@ -50,8 +50,8 @@ public abstract class BaseSearchCriteria implements Serializable {
     /**
      * 创建分页请求.
      *
-     * @return
-     * @author : mingweigao / <mwgao@vip.qq.com> / 2016年1月19日
+     * @return page request
+     * @author : yyfly / 2018-09-12
      */
     public PageRequest buildPageRequest() {
         Sort sort = null;

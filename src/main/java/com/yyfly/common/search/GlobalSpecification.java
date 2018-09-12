@@ -29,7 +29,7 @@ public class GlobalSpecification {
      * @param entityClazz  the entity clazz
      * @param connector    the connector
      * @return the specification
-     * @author : mingweigao / 2018-09-10
+     * @author : yyfly / 2018-09-10
      */
     public static <T> Specification<T> buildSearchParam(final List<SearchParam> searchParams, final Class<T> entityClazz, final String connector) {
         return (Specification<T>) (root, query, builder) -> {
@@ -103,7 +103,7 @@ public class GlobalSpecification {
      * @param searchParams the search params
      * @param entityClazz  the entity clazz
      * @return specification
-     * @author : mingweigao / 2018-09-10
+     * @author : yyfly / 2018-09-10
      */
     public static <T> Specification<T> buildSearchParam(final List<SearchParam> searchParams, final Class<T> entityClazz) {
         return buildSearchParam(searchParams, entityClazz, "and");

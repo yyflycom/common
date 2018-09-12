@@ -176,7 +176,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
      *
      * @param spec the spec
      * @return the specification
-     * @author : mingweigao / 2018-09-10
+     * @author : yyfly / 2018-09-10
      */
     private Specification<T> buildSpecification(Specification<T> spec) {
         Specification<T> specDeleted = (root, query, cb) -> {

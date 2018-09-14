@@ -16,9 +16,16 @@ import java.util.Locale;
 @Component
 public class I18NUtils {
 
-    @Resource
     private static MessageSource messageSource;
 
+    public MessageSource getMessageSource() {
+        return messageSource;
+    }
+
+    @Resource
+    public void setMessageSource(MessageSource messageSource) {
+        I18NUtils.messageSource = messageSource;
+    }
     /**
      * 获取国际化信息
      *

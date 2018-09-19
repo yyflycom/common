@@ -12,7 +12,7 @@ import java.util.List;
  * 基础搜索
  *
  * @author : yyfly / developer@yyfly.com
- * @date : 2018-08-08
+ * @date   : 2018-08-08
  */
 public abstract class BaseSearchCriteria implements Serializable {
 

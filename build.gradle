@@ -56,7 +56,6 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:springBootVersion
 
     compile group: 'org.projectlombok', name: 'lombok', version: lombokVersion
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: swagger2Version
     compile group: 'org.apache.commons', name: 'commons-lang3', version: commonslang3Version
 
     runtime group: 'org.springframework.boot', name: 'spring-boot-devtools', version: springBootVersion

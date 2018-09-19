@@ -1,7 +1,6 @@
 package com.yyfly.common.entity;
 
 import com.yyfly.common.util.I18NUtils;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -24,7 +23,6 @@ public class ResponseData implements Serializable {
     /**
      * 状态码
      */
-    @ApiModelProperty(value = "状态码")
     public Integer code;
 
     /**

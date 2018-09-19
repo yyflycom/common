@@ -15,8 +15,7 @@ import java.util.List;
  *
  * @param <T> the type parameter
  * @author : yyfly / developer@yyfly.com
- * @version : 1.0
- * @date : 2018-08-08
+ * @date   : 2018-08-08
  */
 public interface BaseService<T> {
 

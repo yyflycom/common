@@ -1,23 +1,19 @@
 package com.yyfly.common.search;
 
-import com.google.common.collect.Lists;
 import com.yyfly.common.constant.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
  * 构建全局搜索
  *
  * @author : yyfly / developer@yyfly.com
- * @date : 2018-08-08
+ * @date   : 2018-08-08
  */
 public class GlobalSpecification {
 
@@ -31,11 +27,12 @@ public class GlobalSpecification {
      * @return the specification
      * @author : yyfly / 2018-09-10
      */
+    @SuppressWarnings("unchecked")
     public static <T> Specification<T> buildSearchParam(final List<SearchParam> searchParams, final Class<T> entityClazz, final String connector) {
         return (Specification<T>) (root, query, builder) -> {
             if (null != searchParams && searchParams.size() > 0) {
 
-                List<Predicate> predicates = Lists.newArrayList();
+                List<Predicate> predicates = new ArrayList<>();
                 for (SearchParam filter : searchParams) {
 
                     String[] names = StringUtils.split(filter.getFieldName(), ".");

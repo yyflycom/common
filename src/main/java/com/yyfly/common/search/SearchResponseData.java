@@ -11,7 +11,7 @@ import java.util.List;
  * 搜索响应
  *
  * @author : yyfly / developer@yyfly.com
- * @date : 2018-08-08
+ * @date   : 2018-08-08
  */
 @Data
 @EqualsAndHashCode(callSuper=false)

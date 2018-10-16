@@ -1,7 +1,5 @@
 package com.yyfly.common.entity;
 
-import com.yyfly.common.constant.Constants;
-
 import javax.persistence.PrePersist;
 
 /**
@@ -21,9 +19,7 @@ public class EntityListener {
     @PrePersist
     public void prePersist(BaseEntity entity) {
 
-        if(null == entity.getDeleted()){
-            entity.setDeleted(Constants.DELETED_NORMAL);
-        }
+        entity.setStatus(BaseEntity.NORMAL);
 
     }
 }

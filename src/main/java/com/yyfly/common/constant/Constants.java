@@ -15,13 +15,6 @@ public class Constants {
      */
     public static final Boolean DELETED_SWITCH = Boolean.TRUE;
 
-    /**
-     * 删除状态（0：正常；1：删除；2：审核；）
-     */
-    public static final String DELETED_NORMAL = "0";
-    public static final String DELETED_DELETE = "1";
-    public static final String DELETED_AUDIT = "2";
-
 
     public static final String ANONYMOUS_USER = "anonymousUser";
     public static final String REQUEST_HEADER_USER_AGENT = "user-agent";

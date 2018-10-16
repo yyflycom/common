@@ -1,6 +1,9 @@
 package com.yyfly.common.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -19,11 +22,31 @@ import java.util.Date;
  * @date   : 2018-08-08
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @MappedSuperclass
 @EntityListeners({AuditingEntityListener.class,EntityListener.class})
 public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    /**
+     * 正常
+     */
+    public static final int NORMAL = 0;
+    /**
+     * 禁用
+     */
+    public static final int DISABLE = 1;
+    /**
+     * 删除
+     */
+    public static final int DELETED = 2;
+    /**
+     * 审核
+     */
+    public static final int AUDIT = 3;
 
     /**
      * 唯一ID
@@ -68,8 +91,8 @@ public class BaseEntity implements Serializable {
     private Long version;
 
     /**
-     * 删除状态
+     * 实体状态
      */
-    private String deleted;
+    private int status;
 
 }

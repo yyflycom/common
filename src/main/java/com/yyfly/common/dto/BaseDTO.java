@@ -1,6 +1,9 @@
 package com.yyfly.common.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -11,6 +14,9 @@ import java.util.Date;
  * @date   : 2018-08-08
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class BaseDTO {
     /**
      * 唯一ID

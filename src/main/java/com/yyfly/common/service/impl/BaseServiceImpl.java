@@ -1,8 +1,8 @@
 package com.yyfly.common.service.impl;
 
 import com.yyfly.common.constant.Constants;
-import com.yyfly.common.repository.BaseRepository;
 import com.yyfly.common.entity.BaseEntity;
+import com.yyfly.common.repository.BaseRepository;
 import com.yyfly.common.search.BaseSearchCriteria;
 import com.yyfly.common.search.GlobalSpecification;
 import com.yyfly.common.search.SearchResponseData;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  *
  * @param <T> the type parameter
  * @author : yyfly / developer@yyfly.com
- * @date   : 2018-08-08
+ * @date : 2018-08-08
  */
 @Transactional
 @Service
@@ -81,10 +81,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
             Specification<T> spec = (root, query, cb) -> {
 
                 //获得查询属性
-                Path<String> sPath = root.get("deleted");
+                Path<String> sPath = root.get("status");
 
                 //设置属性查询类型，如like ge gt...
-                Predicate notEqualPredicate = cb.notEqual(sPath, Constants.DELETED_NORMAL);
+                Predicate notEqualPredicate = cb.notEqual(sPath, BaseEntity.DELETED);
 
                 return cb.and(notEqualPredicate);
             };
@@ -100,7 +100,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         } else {
             return getDao().findAllById(ids)
                     .stream()
-                    .filter(entity -> !entity.getDeleted().equals(Constants.DELETED_DELETE))
+                    .filter(entity -> entity.getStatus() != BaseEntity.DELETED)
                     .collect(Collectors.toList());
         }
     }
@@ -112,7 +112,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         } else {
             return getDao().findAll(sort)
                     .stream()
-                    .filter(entity -> !entity.getDeleted().equals(Constants.DELETED_DELETE))
+                    .filter(entity -> entity.getStatus() != BaseEntity.DELETED)
                     .collect(Collectors.toList());
         }
     }
@@ -124,7 +124,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         } else {
             return getDao().findAll(spec)
                     .stream()
-                    .filter(entity -> !entity.getDeleted().equals(Constants.DELETED_DELETE))
+                    .filter(entity -> entity.getStatus() != BaseEntity.DELETED)
                     .collect(Collectors.toList());
         }
 
@@ -137,7 +137,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         } else {
             return getDao().findAll(spec, sort)
                     .stream()
-                    .filter(entity -> !entity.getDeleted().equals(Constants.DELETED_DELETE))
+                    .filter(entity -> entity.getStatus() != BaseEntity.DELETED)
                     .collect(Collectors.toList());
         }
     }
@@ -150,10 +150,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         Specification<T> spec = (root, query, cb) -> {
 
             //获得查询属性
-            Path<String> sPath = root.get("deleted");
+            Path<String> sPath = root.get("status");
 
             //设置属性查询类型，如like ge gt...
-            Predicate notEqualPredicate = cb.notEqual(sPath, Constants.DELETED_NORMAL);
+            Predicate notEqualPredicate = cb.notEqual(sPath, BaseEntity.NORMAL);
 
             return cb.and(notEqualPredicate);
         };
@@ -182,10 +182,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         Specification<T> specDeleted = (root, query, cb) -> {
 
             //获得查询属性
-            Path<String> sPath = root.get("deleted");
+            Path<String> sPath = root.get("status");
 
             //设置属性查询类型，如like ge gt...
-            Predicate notEqualPredicate = cb.notEqual(sPath, Constants.DELETED_NORMAL);
+            Predicate notEqualPredicate = cb.notEqual(sPath, BaseEntity.NORMAL);
 
             return cb.and(notEqualPredicate);
         };
@@ -203,7 +203,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         if (Constants.DELETED_SWITCH) {
             return getDao().findById(id).get();
         } else {
-            return getDao().findById(id).filter(entity -> !entity.getDeleted().equals(Constants.DELETED_DELETE)).get();
+            return getDao().findById(id).filter(entity -> entity.getStatus() != BaseEntity.DELETED).get();
         }
     }
 
@@ -247,7 +247,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
             getDao().deleteById(id);
         } else {
             T entity = findById(id);
-            entity.setDeleted(Constants.DELETED_DELETE);
+            entity.setStatus(BaseEntity.DELETED);
             getDao().save(entity);
         }
     }
@@ -257,7 +257,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         if (flag) {
             getDao().delete(entity);
         } else {
-            entity.setDeleted(Constants.DELETED_DELETE);
+            entity.setStatus(BaseEntity.DELETED);
             getDao().save(entity);
         }
     }
@@ -268,7 +268,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
             getDao().deleteInBatch(entities);
         } else {
             for (T entity : entities) {
-                entity.setDeleted(Constants.DELETED_DELETE);
+                entity.setStatus(BaseEntity.DELETED);
             }
             getDao().saveAll(entities);
         }
@@ -280,7 +280,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
             getDao().deleteAll(entities);
         } else {
             for (T entity : entities) {
-                entity.setDeleted(Constants.DELETED_DELETE);
+                entity.setStatus(BaseEntity.DELETED);
             }
             getDao().saveAll(entities);
         }
@@ -293,7 +293,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         } else {
             List<T> list = getDao().findAll();
             for (T entity : list) {
-                entity.setDeleted(Constants.DELETED_DELETE);
+                entity.setStatus(BaseEntity.DELETED);
             }
             getDao().saveAll(list);
         }

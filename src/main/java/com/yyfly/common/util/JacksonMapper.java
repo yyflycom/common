@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 /**
  * Jackson 封装工具
  *
- * @author : yyfly / mwgao@vip.qq.com
+ * @author : yyfly / developer@yyfly.com
  * @date   : 2018-08-08
  */
 public class JacksonMapper extends ObjectMapper {
@@ -98,7 +98,6 @@ public class JacksonMapper extends ObjectMapper {
      *
      * @return jackson mapper
      * @author : yyfly / 2018-09-12
-     * @Date mw.gao / 2014-2-20
      */
     public JacksonMapper enableSimple() {
         configure(Feature.ALLOW_SINGLE_QUOTES, true);

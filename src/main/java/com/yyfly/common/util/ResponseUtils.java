@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * 返回工具类
  *
- * @author : yyfly / mwgao@vip.qq.com
+ * @author : yyfly / developer@yyfly.com
  * @date   : 2018-08-08
  */
 public class ResponseUtils {

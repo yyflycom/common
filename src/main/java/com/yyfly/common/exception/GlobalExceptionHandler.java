@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 @ResponseBody
 public class GlobalExceptionHandler {
+
     private static Logger logger = LoggerFactory.getLogger(SpringContextUtils.class);
 
     /**
@@ -28,7 +29,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public ResponseData exceptionHandler(Exception exception) {
         logger.error("程序异常：", exception);
-        return ResponseData.error(exception.getMessage());
+        return ResponseData.error(-1, exception.getMessage());
     }
 
 }

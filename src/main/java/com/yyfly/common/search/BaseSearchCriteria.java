@@ -54,7 +54,7 @@ public abstract class BaseSearchCriteria implements Serializable {
      * @author : yyfly / 2018-09-12
      */
     public PageRequest buildPageRequest() {
-        Sort sort = null;
+        Sort sort;
         if (StringUtils.isNoneEmpty(field) && StringUtils.isNoneEmpty(direction)) {
             sort = new Sort(Direction.fromString(direction), field);
         } else {

@@ -11,7 +11,7 @@ import java.util.List;
 
 
 /**
- * 自定义DateString转换
+ * 自定义 String Date 转换
  *
  * @author : yyfly / developer@yyfly.com
  * @date   : 2018-08-08

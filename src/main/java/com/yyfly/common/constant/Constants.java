@@ -4,7 +4,7 @@ package com.yyfly.common.constant;
  * 全局常量
  *
  * @author : yyfly / developer@yyfly.com
- * @date : 2018-08-08
+ * @date   : 2018-08-08
  */
 public class Constants {
 
@@ -17,8 +17,6 @@ public class Constants {
 
 
     public static final String ANONYMOUS_USER = "anonymousUser";
-    public static final String REQUEST_HEADER_USER_AGENT = "user-agent";
-
 
     public static final String CONNECTOR_AND = "and";
     public static final String CONNECTOR_OR = "or";

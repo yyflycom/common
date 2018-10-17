@@ -12,7 +12,7 @@ import java.io.Serializable;
  * 响应
  *
  * @author : yyfly / developer@yyfly.com
- * @date   : 2018-08-08
+ * @date : 2018-08-08
  */
 @Data
 @NoArgsConstructor
@@ -55,7 +55,11 @@ public class ResponseData implements Serializable {
     }
 
     public static ResponseData success(String message, Object data) {
-        return new ResponseData(HTTP.SC_OK, message, data);
+        return success(HTTP.SC_OK, message, data);
+    }
+
+    public static ResponseData success(Integer code, String message, Object data) {
+        return build(code, message, data);
     }
 
     public static ResponseData error(Integer code) {
@@ -67,7 +71,18 @@ public class ResponseData implements Serializable {
     }
 
     public static ResponseData error(Integer code, String message, Object data) {
-        return error(code, message, data);
+        return build(code, message, data);
     }
 
+    public static ResponseData build(HTTP.Status status) {
+        return build(status, null);
+    }
+
+    public static ResponseData build(HTTP.Status status, Object data) {
+        return build(status.value(), status.getReasonPhrase(), data);
+    }
+
+    public static ResponseData build(Integer code, String message, Object data) {
+        return new ResponseData(code, message, data);
+    }
 }

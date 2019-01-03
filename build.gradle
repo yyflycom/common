@@ -3,20 +3,20 @@ apply plugin: 'maven'
 apply plugin: 'idea'
 
 group = 'com.yyfly'
-archivesBaseName = 'yyfly-common'
-version = '1.0.0-beta'
-description = "yyfly-common"
+archivesBaseName = 'common'
+version = '1.0.0'
+description = "common"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 //定义版本号
 ext {
-    springBootVersion = '2.0.4.RELEASE'
+    springBootVersion = '2.1.1.RELEASE'
     junitVersion = '4.12'
     springtestVersion = '5.0.8.RELEASE'
     mysqlVersion = '5.1.46'
-    lombokVersion = '1.18.2'
+    lombokVersion = '1.18.4'
     commonslang3Version = '3.7'
     swagger2Version = '2.9.2'
 }
@@ -42,6 +42,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 artifacts { archives sourcesJar }
 
+
 gradle.projectsEvaluated {
     tasks.withType(JavaCompile) {
         options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
@@ -49,18 +50,19 @@ gradle.projectsEvaluated {
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
-    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: springBootVersion
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version:springBootVersion
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version:springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:springBootVersion
+    
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: commonslang3Version
 
-    compile group: 'org.projectlombok', name: 'lombok', version: lombokVersion
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: commonslang3Version
-
-    runtime group: 'org.springframework.boot', name: 'spring-boot-devtools', version: springBootVersion
+    runtimeClasspath group: 'org.springframework.boot', name: 'spring-boot-devtools', version: springBootVersion
     runtime group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
 
-    testCompile group: 'junit', name: 'junit', version: junitVersion
-    testCompile group: 'org.springframework', name: 'spring-test', version: springtestVersion
+    testImplementation group: 'junit', name: 'junit', version: junitVersion
+    testImplementation group: 'org.springframework', name: 'spring-test', version: springtestVersion
 }

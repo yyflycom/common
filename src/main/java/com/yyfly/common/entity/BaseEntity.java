@@ -26,7 +26,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @MappedSuperclass
-@EntityListeners({AuditingEntityListener.class,EntityListener.class})
+@EntityListeners({AuditingEntityListener.class, EntityListener.class})
 public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

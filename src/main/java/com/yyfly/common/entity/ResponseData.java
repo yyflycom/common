@@ -50,8 +50,8 @@ public class ResponseData implements Serializable {
         return success("request succeeded");
     }
 
-    public static ResponseData success(String message) {
-        return success(message, null);
+    public static ResponseData success(Object data) {
+        return success("request succeeded", data);
     }
 
     public static ResponseData success(String message, Object data) {

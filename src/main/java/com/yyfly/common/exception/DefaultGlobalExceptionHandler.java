@@ -1,9 +1,9 @@
 package com.yyfly.common.exception;
 
 import com.yyfly.common.entity.ResponseData;
+import com.yyfly.common.http.HTTP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 
 
 /**
@@ -24,6 +24,6 @@ public class DefaultGlobalExceptionHandler implements GlobalExceptionHandler {
             return ResponseData.error(e.getCode(), e.getMessage());
         }
 
-        return ResponseData.error(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
+        return ResponseData.build(HTTP.Status.ERROR);
     }
 }

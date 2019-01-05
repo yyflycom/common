@@ -40,13 +40,13 @@ public class BaseEntity implements Serializable {
      */
     public static final int DISABLE = 1;
     /**
-     * 审核
-     */
-    public static final int AUDIT = 2;
-    /**
      * 删除
      */
-    public static final int DELETED = 99;
+    public static final int DELETED = 2;
+    /**
+     * 审核
+     */
+    public static final int AUDIT = 3;
 
     /**
      * 唯一ID

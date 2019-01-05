@@ -5,8 +5,11 @@ import org.springframework.data.domain.AuditorAware;
 
 import java.util.Optional;
 
+
 /**
- * 审计
+ * 默认 entity 审计
+ * @author : yjqhelsing / yjqhelsing@qq.com
+ * @version : 1.0
  */
 public class DefaultJpaAuditorAware implements AuditorAware<String> {
 

@@ -18,6 +18,11 @@ package com.yyfly.common.http;
 
 public class HTTP {
 
+    /**
+     * 自定义错误
+     */
+    public static int ERROR = -1;
+
     // --- 1xx Informational ---
 
     /**
@@ -295,6 +300,8 @@ public class HTTP {
      */
     //from spring framework
     public enum Status {
+
+        ERROR(-1, "mismatch condition"),
 
         // 1xx Informational
 
@@ -690,6 +697,17 @@ public class HTTP {
          * @see <a href="http://tools.ietf.org/html/rfc6585#section-6">Additional HTTP Status Codes</a>
          */
         NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required");
+
+
+        /**
+         * ********************************************************************************************
+         * ********************************************************************************************
+         * ****************************** 自定义响应状态(约定 value 9数字开头) **********************************
+         * ********************************************************************************************
+         * ********************************************************************************************
+         */
+
+
 
         private final int value;
 

@@ -1,4 +1,4 @@
-package com.yyfly.common.convert;
+package com.yyfly.common.config;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

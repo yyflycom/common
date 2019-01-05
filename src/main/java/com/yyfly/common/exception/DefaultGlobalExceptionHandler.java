@@ -1,16 +1,15 @@
-package com.yyfly.common.entity;
+package com.yyfly.common.exception;
 
-import com.yyfly.common.exception.GlobalException;
-import com.yyfly.common.exception.GlobalExceptionHandler;
+import com.yyfly.common.entity.ResponseData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 
+
 /**
- * DefaultGlobalExceptionHandler
- *
- * @Author : helsing
- * @Date : 9:50 2019/1/5
+ * 全局异常处理
+ * @author : yjqhelsing / yjqhelsing@qq.com
+ * @version : 1.0
  */
 public class DefaultGlobalExceptionHandler implements GlobalExceptionHandler {
 

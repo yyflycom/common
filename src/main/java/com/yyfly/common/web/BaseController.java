@@ -37,7 +37,7 @@ public class BaseController {
      * 数据绑定
      *
      * @param binder the binder
-     * @author : yangjunqing / 2018-06-05
+     * @author : yyfly / developer@yyfly.com
      */
     @InitBinder
     public void initBinder(WebDataBinder binder){

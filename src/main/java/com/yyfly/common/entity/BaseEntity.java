@@ -26,7 +26,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @MappedSuperclass
-@EntityListeners({AuditingEntityListener.class,EntityListener.class})
+@EntityListeners({AuditingEntityListener.class, EntityListener.class})
 public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,13 +40,13 @@ public class BaseEntity implements Serializable {
      */
     public static final int DISABLE = 1;
     /**
-     * 删除
-     */
-    public static final int DELETED = 2;
-    /**
      * 审核
      */
-    public static final int AUDIT = 3;
+    public static final int AUDIT = 2;
+    /**
+     * 删除
+     */
+    public static final int DELETED = 99;
 
     /**
      * 唯一ID

@@ -1,35 +1,24 @@
 package com.yyfly.common.exception;
 
 import com.yyfly.common.entity.ResponseData;
-import com.yyfly.common.util.SpringContextUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 全局异常处理
- *
- * @author : yyfly / developer@yyfly.com
- * @date   : 2018-08-08
  */
 @ControllerAdvice
 @ResponseBody
-public class GlobalExceptionHandler {
-
-    private static Logger logger = LoggerFactory.getLogger(SpringContextUtils.class);
+public interface GlobalExceptionHandler {
 
     /**
-     * 所有异常报错
-     *
+     * 所有异常处理
      * @param exception
-     * @return
+     * @return com.yyfly.common.entity.ResponseData
+     * @Author: helsing
+     * @Date: 2019/1/5 9:18
      */
-    @ExceptionHandler(value = Exception.class)
-    public ResponseData exceptionHandler(Exception exception) {
-        logger.error("程序异常：", exception);
-        return ResponseData.error(-1, exception.getMessage());
-    }
-
+    @ExceptionHandler
+    ResponseData exceptionHandler(Exception exception);
 }

@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * common配置
- * @author : helsing / yjqhelsing@qq.com
+ * @author : helsing / helsing@yyfly.com
  * @version : 1.0
  */
 @Configuration
@@ -26,7 +26,7 @@ public class CommonConfig {
      * Auditor aware auditor aware.
      *
      * @return the auditor aware
-     * @author : yjqhelsing / 2019-01-05
+     * @author : helsing / 2019-01-05
      */
     @Bean
     @ConditionalOnMissingBean(AuditorAware.class)
@@ -39,7 +39,7 @@ public class CommonConfig {
      * Global exception handler global exception handler.
      *
      * @return the global exception handler
-     * @author : yjqhelsing / 2019-01-05
+     * @author : helsing / 2019-01-05
      */
     @Bean
     @ConditionalOnMissingBean(GlobalExceptionHandler.class)

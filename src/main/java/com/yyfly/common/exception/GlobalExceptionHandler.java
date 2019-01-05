@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 全局异常处理接口
- * @author : yjqhelsing / yjqhelsing@qq.com
+ * @author : helsing / helsing@yyfly.com
  * @version : 1.0
  */
 @ControllerAdvice
@@ -20,7 +20,7 @@ public interface GlobalExceptionHandler {
      *
      * @param exception the exception
      * @return the response data
-     * @author : yjqhelsing / 2019-01-05
+     * @author : helsing / 2019-01-05
      */
     @ExceptionHandler
     ResponseData exceptionHandler(Exception exception);

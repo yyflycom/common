@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 全局异常处理
- * @author : yjqhelsing / yjqhelsing@qq.com
+ * @author : helsing / helsing@yyfly.com
  * @version : 1.0
  */
 public class DefaultGlobalExceptionHandler implements GlobalExceptionHandler {
